@@ -23,10 +23,9 @@
 
 #include "rand.h"
 
-#ifndef RAND_PLATFORM_INDEPENDENT
+#include "esp_system.h"
 
-#pragma message( \
-    "NOT SUITABLE FOR PRODUCTION USE! Replace random32() function with your own secure code.")
+#ifndef RAND_PLATFORM_INDEPENDENT
 
 // The following code is not supposed to be used in a production environment.
 // It's included only to make the library testable.
@@ -41,11 +40,9 @@ static uint32_t seed = 0;
 
 void random_reseed(const uint32_t value) { seed = value; }
 
-uint32_t random32(void) {
-  // Linear congruential generator from Numerical Recipes
-  // https://en.wikipedia.org/wiki/Linear_congruential_generator
-  seed = 1664525 * seed + 1013904223;
-  return seed;
+uint32_t random32(void)
+{
+  return esp_random();
 }
 
 #endif /* RAND_PLATFORM_INDEPENDENT */
