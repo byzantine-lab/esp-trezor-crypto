@@ -49,7 +49,7 @@ void pbkdf2_hmac_sha256_Init(PBKDF2_HMAC_SHA256_CTX *pctx, const uint8_t *pass,
 void pbkdf2_hmac_sha256_Update(PBKDF2_HMAC_SHA256_CTX *pctx,
                                uint32_t iterations);
 void pbkdf2_hmac_sha256_Final(PBKDF2_HMAC_SHA256_CTX *pctx, uint8_t *key);
-void pbkdf2_hmac_sha256(const uint8_t *pass, int passlen, const uint8_t *salt,
+void pbkdf2__hmac_sha256(const uint8_t *pass, int passlen, const uint8_t *salt,
                         int saltlen, uint32_t iterations, uint8_t *key,
                         int keylen);
 

@@ -77,7 +77,7 @@ void pbkdf2_hmac_sha256_Final(PBKDF2_HMAC_SHA256_CTX *pctx, uint8_t *key) {
   memzero(pctx, sizeof(PBKDF2_HMAC_SHA256_CTX));
 }
 
-void pbkdf2_hmac_sha256(const uint8_t *pass, int passlen, const uint8_t *salt,
+void pbkdf2__hmac_sha256(const uint8_t *pass, int passlen, const uint8_t *salt,
                         int saltlen, uint32_t iterations, uint8_t *key,
                         int keylen) {
   uint32_t last_block_size = keylen % SHA256_DIGEST_LENGTH;
